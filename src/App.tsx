@@ -1,7 +1,12 @@
 import React from 'react';
-// if the path aliasing work correctly the getHelloWorld method should work!
-import { getHelloWorld } from 'lodash';
+
+const LazyComponentA = React.lazy(() => import('./components/ComponentA').then(module => ({ default: module.ComponentA })));
 
 export function App() {
-  return <h1>{getHelloWorld()}</h1>;
+  return (
+    <React.Suspense fallback="LOADING A">
+      <h1>Hello World: FFF</h1>
+      <LazyComponentA />
+    </React.Suspense>
+  )
 }

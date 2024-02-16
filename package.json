@@ -13,7 +13,8 @@
       "context": "node",
       "outputFormat": "esmodule",
       "source": "./src/server-entry.tsx",
-      "distDir": "./dist/server"
+      "distDir": "./dist/server",
+      "includeNodeModules": true
     }
   },
   "alias": {

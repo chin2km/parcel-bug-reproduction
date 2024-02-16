@@ -6,12 +6,16 @@ import { App } from './App';
 const app = express();
 
 app.get('/*', (req, res) => {
-  const entryPoint = ["/main.js"];
+  // const html = ReactDOMServer.renderToString(
+  //   <App />
+  // );
+
+  // res.send(html);
+  // return;
 
   const { pipe, abort: _abort } = ReactDOMServer.renderToPipeableStream(
     <App />,
     {
-      bootstrapScripts: entryPoint,
       onShellReady() {
         res.statusCode = 200;
         res.setHeader('Content-type', 'text/html');
